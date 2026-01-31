@@ -1,0 +1,39 @@
+{
+  "team": [
+    {
+      "id": "1",
+      "name": "章鱼",
+      "nickname": "🐙哥",
+      "role": "导演+摄指+后期",
+      "avatar": "assets/images/team/zhangyu.jpg"
+    },
+    {
+      "id": "2",
+      "name": "孚孚",
+      "nickname": "孚孚",
+      "role": "编剧+分镜+主演",
+      "avatar": "assets/images/team/fufu.jpg"
+    },
+    {
+      "id": "3",
+      "name": "小雅",
+      "nickname": "小雅",
+      "role": "摄影+灯光+道具",
+      "avatar": "assets/images/team/xiaoya.jpg"
+    },
+    {
+      "id": "4",
+      "name": "肖传",
+      "nickname": "长辈哥",
+      "role": "摄影+灯光+道具",
+      "avatar": "assets/images/team/xiaochuan.jpg"
+    },
+    {
+      "id": "5",
+      "name": "清清",
+      "nickname": "清清",
+      "role": "主演+道具+场记",
+      "avatar": "assets/images/team/qingqing.jpg"
+    }
+  ]
+}

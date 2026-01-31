@@ -1,0 +1,893 @@
+/* =======================================
+   青销项目 - 暗调电影感样式表
+   作者: 创作团队
+   日期: 2026-02-01
+   版本: 1.0
+======================================= */
+
+/* 暗调电影感主题色变量定义 */
+:root {
+    --dark-bg: #0f0e17;           /* 主背景色 */
+    --accent-red: #e53170;         /* 强调色 - 红色 */
+    --text-light: #fffffe;         /* 亮色文本 */
+    --text-muted: #a7a9be;         /* -muted文本 */
+    --accent-purple: #8a2be2;      /* 强调色 - 紫色 */
+    --transition: all 0.3s ease;   /* 过渡动画 */
+}
+
+/* 浏览器兼容性前缀 */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* 平滑滚动兼容性 */
+html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+}
+
+/* 修复移动端点击高亮问题 */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 修复iOS Safari下的字体大小调整问题 */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select, textarea, input {
+        font-size: 16px;
+    }
+}
+
+/* 全局重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 主体样式 */
+body {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+/* 响应式字体大小 */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* 电影感滤镜效果 - 全局覆盖层 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(30, 20, 50, 0.3), rgba(0, 0, 0, 0.8));
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* =======================================
+   头部导航区域样式
+======================================= */
+header {
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    text-shadow: 0 0 20px rgba(229, 49, 112, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+nav a:hover {
+    background: rgba(229, 49, 112, 0.2);
+    color: var(--accent-red);
+    transform: translateY(-2px);
+}
+
+/* =======================================
+   英雄区域 - 双世界分屏效果
+======================================= */
+.split-world {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.split-world div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    transition: var(--transition);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 古代场景背景 */
+.ancient {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ancient%20chinese%20jianghu%20scene%20with%20traditional%20buildings%20and%20misty%20mountains%2C%20dark%20moody%20cinematic%20lighting&image_size=landscape_16_9');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 现代场景背景 */
+.modern {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20city%20night%20scene%20with%20neon%20lights%20and%20rainy%20streets%2C%20dark%20moody%20cinematic%20lighting&image_size=landscape_16_9');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 双世界hover效果 */
+.split-world div:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 20px var(--accent-red));
+    z-index: 5;
+}
+
+.split-world h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.split-world p {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 80%;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* =======================================
+   里程碑区域样式
+======================================= */
+#milestone {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#milestone h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-light);
+}
+
+.timeline-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+/* 时间线中轴线 */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-red), var(--accent-purple));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    width: 50%;
+}
+
+/* 奇数项时间线内容 */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 2rem;
+}
+
+/* 偶数项时间线内容 */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 2rem;
+}
+
+.timeline-content {
+    padding: 2rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    position: relative;
+}
+
+/* 时间线节点 */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px rgba(229, 49, 112, 0.5);
+}
+
+/* 奇数项时间线节点位置 */
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -10px;
+}
+
+/* 偶数项时间线节点位置 */
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -10px;
+}
+
+/* 时间线内容hover效果 */
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(229, 49, 112, 0.2);
+}
+
+.timeline-content h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.timeline-content p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* 时间线链接样式 */
+.timeline-link a {
+    color: var(--accent-red);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: bold;
+}
+
+.timeline-link a:hover {
+    color: var(--accent-purple);
+    transform: translateX(5px);
+    display: inline-block;
+}
+
+/* 进度条样式 */
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress, 0%);
+    background: linear-gradient(90deg, var(--accent-red), var(--accent-purple));
+    border-radius: 15px;
+    transition: width 1s ease-in-out;
+    animation: progress-animation 2s ease-in-out;
+}
+
+/* 进度条动画 */
+@keyframes progress-animation {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--progress, 0%);
+    }
+}
+
+.progress-bar span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-light);
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* =======================================
+   项目概念区域样式
+======================================= */
+#concept {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#concept h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.concept-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.concept-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-red);
+}
+
+.concept-content p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* 创作理念样式 */
+.concept-philosophy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.philosophy-item {
+    padding: 2rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.philosophy-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(229, 49, 112, 0.2);
+}
+
+.philosophy-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--accent-red);
+}
+
+.philosophy-item p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* 双世界详情样式 */
+.world-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.world {
+    padding: 2rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.world:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(229, 49, 112, 0.2);
+}
+
+.world h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.world p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* =======================================
+   创作团队区域样式
+======================================= */
+#team {
+    padding: 4rem 2rem;
+}
+
+#team h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-light);
+}
+
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.member {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(229, 49, 112, 0.2);
+}
+
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-red), var(--accent-purple));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+    color: var(--text-light);
+}
+
+.member h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.member p {
+    color: var(--text-muted);
+}
+
+/* =======================================
+   支援我们区域样式
+======================================= */
+#support-us {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    text-align: center;
+}
+
+#support-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+#support-us p {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.support-item {
+    padding: 2rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.support-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(229, 49, 112, 0.2);
+}
+
+.support-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--accent-red);
+}
+
+.support-item p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* 团队链接样式 */
+.team-links {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.team-links p {
+    margin-bottom: 0.5rem;
+}
+
+.team-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.team-links a:hover {
+    color: var(--accent-red);
+    background: rgba(229, 49, 112, 0.1);
+    transform: translateY(-2px);
+}
+
+/* 进度条容器样式 */
+.progress-container {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(229, 49, 112, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.progress-container h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent-red);
+    text-shadow: 0 0 10px rgba(229, 49, 112, 0.3);
+}
+
+/* 进度条动画增强 */
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress, 0%);
+    background: linear-gradient(90deg, var(--accent-red), var(--accent-purple));
+    border-radius: 20px;
+    transition: width 1.5s ease-in-out;
+    animation: progress-animation 2.5s ease-in-out;
+    box-shadow: 0 0 15px rgba(229, 49, 112, 0.5);
+}
+
+.progress-bar span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-light);
+    font-weight: bold;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+}
+
+/* =======================================
+   页脚区域样式
+======================================= */
+footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer p {
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 25px;
+    transition: var(--transition);
+    border: 1px solid rgba(229, 49, 112, 0.3);
+    font-weight: bold;
+}
+
+.footer-button:hover {
+    background: var(--accent-red);
+    color: var(--text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(229, 49, 112, 0.4);
+    border-color: var(--accent-red);
+}
+
+/* =======================================
+   响应式设计
+======================================= */
+
+/* 平板设备适配 */
+@media (max-width: 768px) {
+    /* 头部样式调整 */
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    nav a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* 分屏布局调整 - 改为垂直堆叠 */
+    .split-world {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        height: 80vh;
+    }
+
+    .split-world div {
+        padding: 1.5rem;
+    }
+
+    .split-world h2 {
+        font-size: 1.8rem;
+    }
+
+    .split-world p {
+        font-size: 1rem;
+    }
+
+    /* 里程碑调整 */
+    #milestone {
+        padding: 3rem 1.5rem;
+    }
+
+    #milestone h2 {
+        font-size: 2rem;
+    }
+
+    /* 时间线调整 - 改为左侧对齐 */
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px !important;
+        padding-right: 0 !important;
+    }
+
+    .timeline-content::before {
+        left: 10px !important;
+        right: auto !important;
+    }
+
+    .timeline-content {
+        padding: 1.5rem;
+    }
+
+    /* 创作理念调整 - 改为单列布局 */
+    .concept-philosophy {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .philosophy-item {
+        padding: 1.5rem;
+    }
+
+    /* 进度条调整 */
+    .progress-bar {
+        height: 25px;
+    }
+
+    /* 项目概念调整 */
+    #concept {
+        padding: 3rem 1.5rem;
+    }
+
+    #concept h2 {
+        font-size: 2rem;
+    }
+
+    .concept-content h3 {
+        font-size: 1.5rem;
+    }
+
+    /* 双世界详情调整 - 改为单列布局 */
+    .world-details {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* 团队成员调整 */
+    #team {
+        padding: 3rem 1.5rem;
+    }
+
+    #team h2 {
+        font-size: 2rem;
+    }
+
+    .team-members {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .member {
+        padding: 1.5rem;
+    }
+
+    .member-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 1.2rem;
+    }
+
+    /* 支援我们调整 */
+    #support-us {
+        padding: 3rem 1.5rem;
+    }
+
+    #support-us h2 {
+        font-size: 2rem;
+    }
+
+    #support-us p {
+        font-size: 1rem;
+    }
+
+    /* 支援选项调整 - 改为单列布局 */
+    .support-options {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .support-item {
+        padding: 1.5rem;
+    }
+
+    /* 页脚调整 */
+    footer {
+        padding: 2rem 1.5rem;
+    }
+
+    /* 页脚链接调整 - 改为垂直堆叠 */
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .footer-button {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        padding: 0.7rem 1.3rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 移动设备适配 */
+@media (max-width: 480px) {
+    /* 头部样式进一步调整 */
+    header {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    /* 分屏布局进一步调整 */
+    .split-world {
+        height: 70vh;
+    }
+
+    .split-world h2 {
+        font-size: 1.5rem;
+    }
+
+    .split-world p {
+        font-size: 0.9rem;
+    }
+
+    /* 进度条进一步调整 */
+    .progress-bar span {
+        font-size: 0.8rem;
+    }
+
+    /* 团队成员进一步调整 - 改为两列布局 */
+    .team-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .member h4 {
+        font-size: 1rem;
+    }
+
+    .member p {
+        font-size: 0.8rem;
+    }
+}

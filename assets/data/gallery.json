@@ -1,0 +1,52 @@
+{
+  "gallery": [
+    {
+      "id": "1",
+      "title": "拍摄现场",
+      "description": "古代场景拍摄花絮",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ancient%20chinese%20film%20set%20with%20actors%20in%20traditional%20costumes%2C%20behind%20the%20scenes%2C%20dark%20cinematic%20lighting&image_size=landscape_16_9",
+      "category": "拍摄花絮",
+      "date": "2026-01-20"
+    },
+    {
+      "id": "2",
+      "title": "现代场景",
+      "description": "现代居家场景拍摄",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20apartment%20interior%20film%20set%2C%20behind%20the%20scenes%20with%20crew%20and%20equipment%2C%20dark%20moody%20lighting&image_size=landscape_16_9",
+      "category": "拍摄花絮",
+      "date": "2026-01-22"
+    },
+    {
+      "id": "3",
+      "title": "道具准备",
+      "description": "古代道具制作过程",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=traditional%20chinese%20props%20and%20costumes%20being%20prepared%20for%20film%20shoot%2C%20behind%20the%20scenes&image_size=landscape_16_9",
+      "category": "幕后制作",
+      "date": "2026-01-18"
+    },
+    {
+      "id": "4",
+      "title": "拍摄现场",
+      "description": "古代场景拍摄花絮",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ancient%20chinese%20film%20set%20with%20actors%20in%20traditional%20costumes%2C%20behind%20the%20scenes%2C%20dark%20cinematic%20lighting&image_size=landscape_16_9",
+      "category": "拍摄花絮",
+      "date": "2026-01-20"
+    },
+    {
+      "id": "5",
+      "title": "现代场景",
+      "description": "现代居家场景拍摄",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20apartment%20interior%20film%20set%2C%20behind%20the%20scenes%20with%20crew%20and%20equipment%2C%20dark%20moody%20lighting&image_size=landscape_16_9",
+      "category": "拍摄花絮",
+      "date": "2026-01-22"
+    },
+    {
+      "id": "6",
+      "title": "道具准备",
+      "description": "古代道具制作过程",
+      "image": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=traditional%20chinese%20props%20and%20costumes%20being%20prepared%20for%20film%20shoot%2C%20behind%20the%20scenes&image_size=landscape_16_9",
+      "category": "幕后制作",
+      "date": "2026-01-18"
+    }
+  ]
+}
